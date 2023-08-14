@@ -1,5 +1,5 @@
 
-# Tokopedia Play Clone API ( Express.js + MongoDB)
+# Tokopedia Play Clone API  ( Express.js + MongoDB) Final Projects
 
 This repository includes a Video Management RESTful API developed with Express.js and MongoDB. It enables clients to do video retrieval, fetching linked products and comments, and adding new comments for individual videos. Detailed setup instructions and a database schema explanation are provided.
 
