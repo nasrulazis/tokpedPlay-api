@@ -74,7 +74,7 @@ const videoSchema = new mongoose.Schema({
 - `comments` (Array of ObjectIds, ref: 'Comments') :  An array of references to Comments documents associated with the video.
 
 ### 2. Product Schema
-This Collection stores data video.
+This Collection stores data products.
 
 ```javascript product.js
 const productSchema = new mongoose.Schema({
@@ -103,7 +103,7 @@ const productSchema = new mongoose.Schema({
 - `linkImageProduct` (String, required) : Embeded Url of the product image.
 
 ### 3. Comment Schema
-This Collection stores data video.
+This Collection stores data comments.
 
 ```javascript comment.js
 const mongoose = require('mongoose');
@@ -123,11 +123,42 @@ const commentSchema = new mongoose.Schema({
 timestamps: true 
 });
 
-module.exports = mongoose.model('Comment', commentSchema)
 ```
 #### Fields :
 - `user` (String, required) : A reference to User document associated with the comment.
 - `comment` (String) : The comment document.
+
+### 4. User Schema
+This Collection stores data user.
+
+```javascript comment.js
+const mongoose = require('mongoose');
+
+const userSchema = new mongoose.Schema({
+    name:{
+        required:true,
+        type:String,
+    },
+    image:{
+        required:false,
+        type:String,
+    },
+    email:{
+        required:true,
+        type:String
+    },
+    password:{
+        required:true,
+        type:String
+    },
+});
+
+```
+#### Fields :
+- `name` (String, required) : The user name.
+- `image` (String) : The user image url (only string because it should be linked to public images path).
+- `email` (String) : The user email for login.
+- `password` (String) : The user pawword for login.
 
 ## API Endpoints
 List of available endpoints : 
@@ -150,7 +181,7 @@ List of available endpoints :
 4. POST `/api/user/logout` : Loged user out and remove user accesstoken from cookies.
 
 
-For a detailed explanation of the request and response format for each endpoint, please refer to this [gist API Endpoints.](https://gist.github.com/nasrulazis/f08b1b1ca2c534b5acb6fb9ea9352ef8)
+For a detailed explanation of the request and response format for each endpoint, please refer to this [gist API Endpoints.](https://gist.github.com/nasrulazis/81356e5323e3c9308bd5d05a09bfe77c)
 ## Usage/Examples
 To start the API, run the following command in the terminal:
 ```javascript
